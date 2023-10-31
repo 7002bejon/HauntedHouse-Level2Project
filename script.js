@@ -7,6 +7,7 @@ function initialize() {
     playerUnlockedKitchen = false;
     playerUnlockedFinalRoom = false;
     playerDeath = false;
+    document.getElementById("Unlock").style.display= 'none';
 }
 
 function changePlayerTrackerLivingRoom() {
@@ -63,36 +64,37 @@ function keyCheck() {
 }
 
 function showUnlockButton() {
+    x = document.getElementById("Unlock");
     if (playerTracker = "Kitchen") {
         if (playerUnlockedStairs2 == false) {
-            document.getElementById("Unlock").style.display='block';
+            x.style.display='block';
         }
         if (playerUnlockedKitchen == false) {
-            document.getElementById("Unlock").style.display='block';
+            x.style.display='block';
         }
     } else {
-        document.getElementById("Unlock").style.display='none';
+       x.style.display='none';
     }
     if (playerTracker == "Stairs1") {
         if (playerUnlockedStairs1 = false) {
-            document.getElementById("Unlock").style.display='block';
+            x.style.display='block';
         }
     } else {
-        document.getElementById("Unlock").style.display='none';
+        x.style.display='none';
     }
     if (playerTracker == "LivingRoom") {
-        if (playerUnlockedKitchen = false) {
-            document.getElementById("Unlock").style.display='block';
+        if (playerUnlockedKitchen == false & playerUnusedKeys != 0) {
+           x.style.display='block';
         }
     } else {
-        document.getElementById("Unlock").style.display='none';
+        x.style.display='none';
     }
     if (playerTracker == "Conservatory") {
     if (playerUnlockedFinalRoom == false & playerTotalKeys == 4) {
-        document.getElementById("Unlock").style.display='block';
+        x.style.display='block';
     }
 } else {
-    document.getElementById("Unlock").style.display='none';
+    x.style.display='none';
 }
 }
 
