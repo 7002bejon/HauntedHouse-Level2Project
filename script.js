@@ -70,21 +70,29 @@ function showUnlockButton() {
         if (playerUnlockedKitchen == false) {
             document.getElementById("Unlock").style.display='block';
         }
+    } else {
+        document.getElementById("Unlock").style.display='none';
     }
     if (playerTracker == "Stairs1") {
         if (playerUnlockedStairs1 = false) {
             document.getElementById("Unlock").style.display='block';
         }
+    } else {
+        document.getElementById("Unlock").style.display='none';
     }
     if (playerTracker == "LivingRoom") {
         if (playerUnlockedKitchen = false) {
             document.getElementById("Unlock").style.display='block';
         }
+    } else {
+        document.getElementById("Unlock").style.display='none';
     }
     if (playerTracker == "Conservatory") {
     if (playerUnlockedFinalRoom == false & playerTotalKeys == 4) {
         document.getElementById("Unlock").style.display='block';
     }
+} else {
+    document.getElementById("Unlock").style.display='none';
 }
 }
 
