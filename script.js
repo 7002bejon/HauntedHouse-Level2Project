@@ -9,12 +9,48 @@ function initialize() {
     playerDeath = false;
 }
 
-function changePlayerTrackerLR() {
+function changePlayerTrackerLivingRoom() {
     playerTracker == "Living Room";
 }
 
-function changePlayerTrackerSTR1() {
+function changePlayerTrackerStairs1() {
     playerTracker == "Stairs1";
+}
+
+function changePlayerTrackerStairs2() {
+    playerTracker == "Stairs2";
+}
+
+function changePlayerTrackerKitchen() {
+    playerTracker == "Kitchen";
+}
+
+function changePlayerTrackerFinalRoom() {
+    playerTracker == "Final Room";
+}
+
+function changePlayerTrackerDiningRoom() {
+    playerTracker == "Dining Room";
+}
+
+function changePlayerTrackerBedroom() {
+    playerTracker == "Bedroom";
+}
+
+function changePlayerTrackerBathroom() {
+    playerTracker == "Bathroom";
+}
+
+function changePlayerTrackerConservatory() {
+    playerTracker == "Conservatory";
+}
+
+function changePlayerTrackerStudio() {
+    playerTracker == "Studio";
+}
+
+function changePlayerTrackerBalcony() {
+    playerTracker == "Balcony";
 }
 
 function keyCheck() {
@@ -27,13 +63,34 @@ function keyCheck() {
 }
 
 function showUnlockButton() {
-
+    if (playerTracker = "Kitchen") {
+        if (playerUnlockedStairs2 = false) {
+            document.getElementById("Unlock").style.display='block';
+        }
+        if (playerUnlockedKitchen = false) {
+            document.getElementById("Unlock").style.display='block';
+        }
+    }
+    if (playerTracker = "Stairs1") {
+        if (playerUnlockedStairs1 = false) {
+            document.getElementById("Unlock").style.display='block';
+        }
+    }
+    if (playerTracker = "LivingRoom") {
+        if (playerUnlockedKitchen = false) {
+            document.getElementById("Unlock").style.display='block';
+        }
+    }
+    if (playerTracker = "Conservatory") {
+    if (playerUnlockedFinalRoom = false) {
+        document.getElementById("Unlock").style.display='block';
+    }
+}
 }
 
 function unlock() {
         if (playerTracker == "Stairs1") {
             playerUnlockedStairs1 == true;
             playerUnusedKeys -= 1;
-
     }
 }
