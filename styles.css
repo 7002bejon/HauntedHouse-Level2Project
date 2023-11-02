@@ -12,6 +12,10 @@ p {
     color:orange;
 }
 
+#Unlock {
+    visibility: hidden;
+}
+
 .title {
     margin: 0;
     position: absolute;
