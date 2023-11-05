@@ -6,8 +6,86 @@ function initialize() {
     playerUnlockedStairs2 = false;
     playerUnlockedKitchen = false;
     playerUnlockedFinalRoom = false;
+    playerCheckedBedroom = false;
+    playerCheckedDiningRoom = false;
+    playerCheckedBalcony = false;
+    playerCheckedStudio = false;
     playerDeath = false;
-    document.getElementById("Unlock").style.display= 'none';
+}
+
+function EventSend() {
+    head = document.getElementById("heading");
+    context = document.getElementById("Context");
+    choice1 = document.getElementById("Choice1");
+    choice2 = document.getElementById("Choice2");
+    if (playerTracker = "Gallery") {
+        window.location.href ="eventScreen.html";
+        head.innerHTML = "Painting Popup";
+        context.innerHTML = "You see a blank canvas with a paintcan next to it";
+        choice1.innerHTML = "Paint a picture of a key";
+        choice2.innerHTML = "Paint a picture of door";
+    }
+    if (playerTracker = "Bathroom") {
+
+    }
+    if (playerTracker = "Conservatory") {
+
+    }
+    if (playerTracker = "Bedroom") {
+
+    }
+}
+function EndSendGood() {
+    startButton = document.getElementById("ReturnStart");
+    startButton.style.visibility = "hidden";
+    returnButton = document.getElementById("ReturnPrevious");
+    returnButton.style.visibility = "visible";
+    title = document.getElementById("EndTitle");
+    text = document.getElementById("EndingText");
+    if (playerTracker = "Gallery") {
+        title.innerHTML = "Mysterious Foresight";
+        text.innerHTML = "Upon painting the key, you see an image appear in your mind. The image is that of a Bedroom";
+    }
+}
+
+function EndSendBad() {
+    startButton = document.getElementById("ReturnStart");
+    startButton.style.visibility = "visible";
+    returnButton = document.getElementById("ReturnPrevious");
+    returnButton.style.visibility = "hidden";
+    title = document.getElementById("EndTitle")
+    text = document.getElementById("EndingText");
+    if (playerTracker = "Gallery") {
+       title.innerHTML = "Bad Ending 1 - Darker and Deeper"
+       text.innerHTML = "Upon painting the door, you drop down into what seems like an endless abyss. You will never make it out.";
+    }
+}
+function checkKeyRoom() {
+    checkMessage = document.getElementById("Check");
+    if (playerTracker == "Bedroom" && playerCheckedBedroom == false) {
+       checkMessage.innerHTML = "You see a key near the bed. You pick it up.";
+       playerCheckedBedroom = true;
+    } else if (playerTracker == "Bedroom" & playerCheckedBedroom == true) {
+       checkMessage.innerHTML = "There is nothing of interest";
+    }
+    if (playerTracker = "DiningRoom" & playerCheckedDiningRoom == false ) {
+        checkMessage.innerHTML = "You see a key on the table. You pick it up.";
+        playerCheckedDiningRoom == true;
+     } else if (playerTracker = "DiningRoom" & playerCheckedDiningRoom == true) {
+        checkMessage.innerHTML = "There is nothing of interest";
+     }
+     if (playerTracker = "Balcony" & playerCheckedBalcony == false ) {
+        checkMessage.innerHTML = "You see a key on the rail. You pick it up.";
+        playerCheckedBalcony == true;
+     } else if (playerTracker = "Balcony" & playerCheckedBalcony == true) {
+        checkMessage.innerHTML = "There is nothing of interest";
+     }
+     if (playerTracker = "Studio" & playerCheckedStudio == false ) {
+        checkMessage.innerHTML = "You see a key on the ground. You pick it up.";
+        playerCheckedStudio == true;
+     } else if (playerTracker = "Studio" & playerCheckedStudio == true) {
+        checkMessage.innerHTML = "There is nothing of interest";
+     }
 }
 
 function changePlayerTrackerLivingRoom() {
@@ -67,34 +145,34 @@ function showUnlockButton() {
     x = document.getElementById("Unlock");
     if (playerTracker = "Kitchen") {
         if (playerUnlockedStairs2 == false) {
-            x.style.display='block';
+            x.style.visibility="visible";
         }
         if (playerUnlockedKitchen == false) {
-            x.style.display='block';
+            x.style.visibility="visible";
         }
     } else {
-       x.style.display='none';
+        x.style.visibility="hidden";
     }
     if (playerTracker == "Stairs1") {
         if (playerUnlockedStairs1 = false) {
-            x.style.display='block';
+            x.style.visibility="visible";
         }
     } else {
-        x.style.display='none';
+        x.style.visibility="hidden";
     }
     if (playerTracker == "LivingRoom") {
         if (playerUnlockedKitchen == false & playerUnusedKeys != 0) {
-           x.style.display='block';
+            x.style.visibility="visible";
         }
     } else {
-        x.style.display='none';
+        x.style.visibility="hidden";
     }
     if (playerTracker == "Conservatory") {
     if (playerUnlockedFinalRoom == false & playerTotalKeys == 4) {
-        x.style.display='block';
+        x.style.visibility="visible";
     }
 } else {
-    x.style.display='none';
+    x.style.visibility="hidden";
 }
 }
 
@@ -119,4 +197,9 @@ function unlock() {
             playerUnlockedFinalRoom == true;
             playerUnusedKeys -=1;
         }
+}
+
+const button = document.querySelectorAll('button');
+for (const button of buttons) {
+    button.addEventListener("click", checkKeyRoom());
 }
