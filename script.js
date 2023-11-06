@@ -1,16 +1,24 @@
+// Wriiten by Bejon
 function initialize() {
-    playerTracker = null;
-    playerTotalKeys = 0;
-    playerUnusedKeys = 0;
-    playerUnlockedStairs1 = false;
-    playerUnlockedStairs2 = false;
-    playerUnlockedKitchen = false;
-    playerUnlockedFinalRoom = false;
-    playerCheckedBedroom = false;
-    playerCheckedDiningRoom = false;
-    playerCheckedBalcony = false;
-    playerCheckedStudio = false;
-    playerDeath = false;
+    let playerTracker = null;
+    let playerTotalKeys = 0;
+    let playerUnusedKeys = 0;
+    let playerUnlockedStairs1 = false;
+    let playerUnlockedStairs2 = false;
+    let playerUnlockedKitchen = false;
+    let playerUnlockedFinalRoom = false;
+    let playerCheckedBedroom = false;
+    let playerCheckedDiningRoom = false;
+    let playerCheckedBalcony = false;
+    let playerCheckedStudio = false;
+    let playerDeath = false;
+}
+
+function diningEnd() {
+    let title = document.getElementById("EndTitle");
+    let text = document.getElementById("EndingText");
+    title.innerHTML = "Dining Mishap";
+    text.innerHTML = "You take a bite of food and feel sick. Before you know it, you are on the floor, dead";
 }
 
 function EventSend() {
@@ -31,7 +39,7 @@ function EventSend() {
     if (playerTracker = "Conservatory") {
 
     }
-    if (playerTracker = "Bedroom") {
+    if (playerTracker = "DiningRoom") {
 
     }
 }
@@ -200,6 +208,11 @@ function unlock() {
 }
 
 const button = document.querySelectorAll('button');
+var dineb = document.getElementById("dine");
+dineb.addEventListener('click', diningEnd());
+button.addEventListener('click', diningEnd());
 for (const button of buttons) {
     button.addEventListener("click", checkKeyRoom());
+    button.addEventListener('click', diningEnd());
 }
+
