@@ -207,10 +207,9 @@ function unlock() {
         }
 }
 
-const button = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
 var dineb = document.getElementById("dine");
 dineb.addEventListener('click', diningEnd());
-button.addEventListener('click', diningEnd());
 for (const button of buttons) {
     button.addEventListener("click", checkKeyRoom());
     button.addEventListener('click', diningEnd());
